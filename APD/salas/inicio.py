@@ -8,27 +8,27 @@ def iniciar_juego(cantidad_incial_jugadores):
     COLOR_BLANCO = (255, 255, 255)
     COLOR_FONDO = (120, 55, 12)
 
-    fuente_bienvenido = pygame.font.Font("archivos/Golden Age.ttf",60)
+    fuente_bienvenido = pygame.font.Font("APD/archivos/Golden Age.ttf",60)
     bienvenido = fuente_bienvenido.render("BIENVENIDO", True, COLOR_BLANCO)
     ingreso_rect = pygame.Rect(100, 200, 150, 40)
 
-    fuente_subtitulo = pygame.font.Font("archivos/Golden Age Shad.ttf", 30)
+    fuente_subtitulo = pygame.font.Font("APD/archivos/Golden Age Shad.ttf", 30)
     subtitulo_juego = fuente_subtitulo.render("Sala de Escape de Programacion", True, COLOR_BLANCO)
 
-    fuente_contador = pygame.font.Font("archivos/Golden Age Shad.ttf", 70)
+    fuente_contador = pygame.font.Font("APD/archivos/Golden Age Shad.ttf", 70)
     contador = cantidad_incial_jugadores
 
     pregunta_jugadores = fuente_subtitulo.render("Cuantos jugadores son?", True, COLOR_BLANCO)
 
-    flecha_arriba = pygame.image.load("archivos/flecha_arriba.svg")
+    flecha_arriba = pygame.image.load("APD/archivos/flecha_arriba.svg")
     flecha_arriba = pygame.transform.scale(flecha_arriba, (200,200))
     flecha_rect = flecha_arriba.get_rect(topleft=(460, 225))  # Posición en pantalla
 
-    flecha_abajo = pygame.image.load("archivos/flecha_abajo.svg")
+    flecha_abajo = pygame.image.load("APD/archivos/flecha_abajo.svg")
     flecha_abajo = pygame.transform.scale(flecha_abajo, (200,200))
     flecha_rect2 = flecha_abajo.get_rect(topleft=(125, 225))  # Posición en pantalla
 
-    fuente_jugar = pygame.font.Font("archivos/Golden Age Shad.ttf", 40)
+    fuente_jugar = pygame.font.Font("APD/archivos/Golden Age Shad.ttf", 40)
     texto_jugar = fuente_jugar.render("Jugar", True, COLOR_FONDO)
 
     # VENTANA

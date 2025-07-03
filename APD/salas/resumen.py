@@ -5,7 +5,7 @@ def resumen(color_fondo, lista_jugadores, lista_por_sala, no_pasaron_primera_lis
 
     ANCHO_VENTANA = 800
     ALTO_VENTANA = 900
-    fuente = pygame.font.Font("archivos/Golden Age.ttf", 30)
+    fuente = pygame.font.Font("APD/archivos/Golden Age.ttf", 30)
 
     pantalla = pygame.display.set_mode((ANCHO_VENTANA, ALTO_VENTANA))
     pygame.display.set_caption("Sala de Escape de Programación")
@@ -44,7 +44,7 @@ def resumen(color_fondo, lista_jugadores, lista_por_sala, no_pasaron_primera_lis
             pantalla.blit(render_jugador, (400, jugador_no_paso))
             jugador_no_paso += 50
 
-        mejor_puntaje_fuente = pygame.font.Font("archivos/Golden Age.ttf", 30)
+        mejor_puntaje_fuente = pygame.font.Font("APD/archivos/Golden Age.ttf", 30)
         mejor_puntaje_texto = mejor_puntaje_fuente.render("Llegaron mas lejos", True, (255,255,255))
         no_pasaron_primera = mejor_puntaje_fuente.render("No superaron la sala 1", True, (255,255,255))
         pantalla.blit(mejor_puntaje_texto, (40, 560))

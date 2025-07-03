@@ -13,13 +13,13 @@ def sala(color_fondo, nivel, texto_pregunta, texto_pregunta2, pregunta_x, pregun
     COLOR_TIMER = (255,255,255)
 
     # CANCION
-    pygame.mixer.music.load("archivos/musica.mp3")
+    pygame.mixer.music.load("APD/archivos/musica.mp3")
     pygame.mixer.music.play(-1)
     pygame.mixer.music.set_volume(0.5)
 
     # SONIDOS
-    sonido_correcto = pygame.mixer.Sound("archivos/correcto.mp3")
-    sonido_perdiste = pygame.mixer.Sound("archivos/perdiste.mp3")
+    sonido_correcto = pygame.mixer.Sound("APD/archivos/correcto.mp3")
+    sonido_perdiste = pygame.mixer.Sound("APD/archivos/perdiste.mp3")
     sonido_perdiste.set_volume(0.5)
 
     # VENTANA
@@ -33,18 +33,18 @@ def sala(color_fondo, nivel, texto_pregunta, texto_pregunta2, pregunta_x, pregun
     inicio_tiempo = pygame.time.get_ticks()
 
     # FONDOS
-    fondo1 = pygame.image.load("archivos/puerta_cerrada.png")
-    fondo2 = pygame.image.load("archivos/puerta_abierta.png")
+    fondo1 = pygame.image.load("APD/archivos/puerta_cerrada.png")
+    fondo2 = pygame.image.load("APD/archivos/puerta_abierta.png")
     usar_fondo1 = True
 
-    avanzar = pygame.image.load("archivos/flecha_avanzar.svg")
+    avanzar = pygame.image.load("APD/archivos/flecha_avanzar.svg")
     avanzar = pygame.transform.scale(avanzar, (200,200))
     avanzar_rect = avanzar.get_rect(topleft=(370,600))
 
     # TEXTOS
-    fuente_sala = pygame.font.Font("archivos/Golden Age.ttf", 30)
+    fuente_sala = pygame.font.Font("APD/archivos/Golden Age.ttf", 30)
     texto_sala = fuente_sala.render(f"Sala {nivel}", True, COLOR_BLANCO)
-    fuente_pregunta = pygame.font.Font("archivos/Golden Age Shad.ttf", 30)
+    fuente_pregunta = pygame.font.Font("APD/archivos/Golden Age Shad.ttf", 30)
     pregunta = fuente_pregunta.render(texto_pregunta, True, color_fondo)
     pregunta2 = fuente_pregunta.render(texto_pregunta2, True, color_fondo)
 
@@ -54,7 +54,7 @@ def sala(color_fondo, nivel, texto_pregunta, texto_pregunta2, pregunta_x, pregun
 
     intentos = 2
 
-    respuesta_font = pygame.font.Font("archivos/Golden Age.ttf", 30)
+    respuesta_font = pygame.font.Font("APD/archivos/Golden Age.ttf", 30)
     ingreso = ""
 
     rect_boton = pygame.Rect(250, 400, 300, 80)

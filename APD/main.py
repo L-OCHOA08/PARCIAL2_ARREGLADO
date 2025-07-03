@@ -61,7 +61,5 @@ def juego():
 
     lista_jugadores[f'{nombre_jugador}: '] = info_jugador
     resumen((120, 55, 12),lista_jugadores, lista_por_sala, no_pasaron_primera)
-    print(lista_por_sala)
-
 
 juego()

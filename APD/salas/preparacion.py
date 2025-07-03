@@ -11,12 +11,12 @@ def ingreso_individual(color_fondo, i):
     pygame.display.set_caption("Sala de Escape de Programación")
     # INGRESO DEL NOMBRE
     ingreso_rect = pygame.Rect(100, 200, 150, 40)
-    ingreso_font = pygame.font.Font("archivos/Golden Age Shad.ttf", 30)
-    ingreso_font_titulo = pygame.font.Font("archivos/Golden Age.ttf", 40)
+    ingreso_font = pygame.font.Font("APD/archivos/Golden Age Shad.ttf", 30)
+    ingreso_font_titulo = pygame.font.Font("APD/archivos/Golden Age.ttf", 40)
     ingreso = ""
     # BOTON DE JUGAR
     jugar_rect = pygame.Rect(275, 300, 250, 80)
-    jugar_font = pygame.font.Font("archivos/Golden Age Shad.ttf", 40)
+    jugar_font = pygame.font.Font("APD/archivos/Golden Age Shad.ttf", 40)
     flag_juego = True
     while flag_juego:
         lista_eventos = pygame.event.get()
@@ -34,7 +34,7 @@ def ingreso_individual(color_fondo, i):
                     pos_nombre -= 10
             if evento.type == pygame.MOUSEBUTTONDOWN and len(ingreso) > 0:
                 if jugar_rect.collidepoint(evento.pos):
-                    return ingreso
+                    flag_juego = False
                 
 
         pantalla.fill(color_fondo)
@@ -49,3 +49,4 @@ def ingreso_individual(color_fondo, i):
         pygame.display.flip()
 
     pygame.quit()
+    return ingreso
