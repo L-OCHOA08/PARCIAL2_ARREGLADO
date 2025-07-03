@@ -1,0 +1,4 @@
+Sala 1,int / float / str / boolean,char / long / byte / boolean,text / decimal / bit / float64,double / real / varchar / boolean
+Sala 2,if x > 5: print('Mayor'),if (x > 5) then { print("Mayor") },if x > 5: print 'Mayor',if x > 5 do print("Mayor")
+Sala 3,Indicar que un directorio debe tratarse como un paquete de Python.,Sirve para ejecutar el código principal de la aplicación.,Es un archivo temporal que se elimina al compilar.,Ninguna de las anteriores.
+Sala 4,copy() realiza una copia referencial al original y deepcopy() realiza una copia independiente,copy() copia en otra carpeta y deepcopy() lo hace comprimido.,deepcopy() solo funciona con listas y copy() con diccionarios.,copy() duplica el código fuente y deepcopy() crea una instancia nueva del script.
