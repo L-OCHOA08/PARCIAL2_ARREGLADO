@@ -13,8 +13,16 @@ def sala_de_escape():
     for jugador in range(cant_jugadores):
         tabla_jugador = [] # SE GUARDA EL NOMBRE CON CADA UNO DE LOS PUNTAJES INDIVIDUALMENTE
         tabla_sala_jugador = [] # SE GUARDA EL NOMBRE CON LA SALA EN LA QUE FINALIZÓ SU RECORRIDO
-        lista_jugadores, jugador = ingreso_individual(lista_jugadores)
-        nombre, puntaje_por_sala,cant_salas, no_paso_primera = escape(jugador)
+        
+        lista_con_jugador = ingreso_individual(lista_jugadores)
+        lista_jugadores = lista_con_jugador[0]
+        jugador = lista_con_jugador[1]
+
+        resultado = escape(jugador)
+        nombre = resultado[0]
+        puntaje_por_sala =  resultado[1]
+        cant_salas = resultado[2]
+        no_paso_primera = resultado[3]
 
         if no_paso_primera == True:
             lista_no_pasaron_sala1.append(nombre)

@@ -6,10 +6,20 @@ from salas.resumen import resumen
 def juego():
     lista_jugadores = {}
     lista_por_sala = {}
+
+    COLORES_SALAS = [[161, 147, 250], [37, 77, 112], [45, 79, 43], [82, 29, 68]]
+    NIVEL_SALAS = ["1", "2", "3", "4"]
+
+    TEXTO_PREGUNTA = [["Cual es el valor de", "len([10, 20, 30, 40])?"], ['Que imprime print("Hola"[1])?', ""], ["a = [2, 4, 6, 8]", "Cual es el valor de a[-2]?"], ["Cual es el resultado de", "5 > 3 and 2 < 4? True o False"]]
+
+    POS_PREGUNTAS = [[220, 125, 222, 155],[130, 135, 0, 0],[120, 125, 122, 155],[120, 125, 122, 155]]
+
+    RESPUESTA_CORRECTA = ["4", "o", "6", "true"]
+    
     no_pasaron_primera = list()
     cantidad_incial_jugadores = 1
     cantidad_incial_jugadores = iniciar_juego(cantidad_incial_jugadores)
-    print(cantidad_incial_jugadores)
+    
     for jugador in range(cantidad_incial_jugadores):
         completo = "No completo"
         info_jugador = []
@@ -17,27 +27,17 @@ def juego():
         sigue = True
         puntaje_por_sala = [0,0,0,0]
         puntaje = 0
-
         nombre_jugador = ingreso_individual((120, 55, 12), jugador)
-
-        COLORES_SALAS = [(161, 147, 250), (37, 77, 112), (45, 79, 43), (82, 29, 68)]
-        NIVEL_SALAS = ["1", "2", "3", "4"]
-        TEXTO_PREGUNTA = ["Cual es el valor de", 'Que imprime print("Hola"[1])?', "a = [2, 4, 6, 8]", "Cual es el resultado de"]
-        TEXTO_PREGUNTA2 = ["len([10, 20, 30, 40])?", "", "Cual es el valor de a[-2]?", "5 > 3 and 2 < 4? True o False"]
-        PREGUNTA_X = [220, 130, 120, 120]
-        PREGUNTA_Y = [125, 135, 125, 125]
-        PREGUNTA2_X = [222, 0, 122, 122]
-        PREGUNTA2_Y = [155, 0, 155, 155]
-        RESPUESTA_CORRECTA = ["3", "o", "6", "true"]
-
-
         i = 0
         while sigue and i < len(NIVEL_SALAS):
-            puntaje, sigue = sala(COLORES_SALAS[i], NIVEL_SALAS[i], TEXTO_PREGUNTA[i], TEXTO_PREGUNTA2[i], PREGUNTA_X[i], PREGUNTA_Y[i], PREGUNTA2_X[i], PREGUNTA2_Y[i], RESPUESTA_CORRECTA[i])
+            resultado = sala(COLORES_SALAS[i], NIVEL_SALAS[i], TEXTO_PREGUNTA[i], POS_PREGUNTAS[i], RESPUESTA_CORRECTA[i])
+            puntaje = resultado[0]
+            sigue = resultado[1]
             if sigue == True:
                 sala_finalizo += 1
                 puntaje_por_sala[i] += puntaje
                 i += 1
+
     if sala_finalizo > 1 and sala_finalizo <= 3:
         completo = "No completo"
     elif sala_finalizo == 4:
@@ -52,10 +52,7 @@ def juego():
 
     puntaje = puntaje_por_sala[0] + puntaje_por_sala[1] + puntaje_por_sala[2] + puntaje_por_sala[3]
 
-    info_jugador.append(puntaje_por_sala[0])
-    info_jugador.append(puntaje_por_sala[1])
-    info_jugador.append(puntaje_por_sala[2])
-    info_jugador.append(puntaje_por_sala[3])
+    info_jugador.extend(puntaje_por_sala[:4])
     info_jugador.append(f"Total: {puntaje}")
     info_jugador.append(completo)
 

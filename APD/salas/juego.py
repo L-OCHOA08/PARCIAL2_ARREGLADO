@@ -1,7 +1,7 @@
 import pygame
 import random
 
-def sala(color_fondo, nivel, texto_pregunta, texto_pregunta2, pregunta_x, pregunta_y, pregunta2_x, pregunta2_y ,respuesta_correcta):
+def sala(color_fondo, nivel, texto_pregunta, pos_pregunta,respuesta_correcta):
     pygame.init()
 
     # COLORES
@@ -45,8 +45,8 @@ def sala(color_fondo, nivel, texto_pregunta, texto_pregunta2, pregunta_x, pregun
     fuente_sala = pygame.font.Font("APD/archivos/Golden Age.ttf", 30)
     texto_sala = fuente_sala.render(f"Sala {nivel}", True, COLOR_BLANCO)
     fuente_pregunta = pygame.font.Font("APD/archivos/Golden Age Shad.ttf", 30)
-    pregunta = fuente_pregunta.render(texto_pregunta, True, color_fondo)
-    pregunta2 = fuente_pregunta.render(texto_pregunta2, True, color_fondo)
+    pregunta = fuente_pregunta.render(texto_pregunta[0], True, color_fondo)
+    pregunta2 = fuente_pregunta.render(texto_pregunta[1], True, color_fondo)
 
     rect_respuesta = pygame.Rect(100, 270, 600, 80)
     pos_respuesta = 400
@@ -121,8 +121,8 @@ def sala(color_fondo, nivel, texto_pregunta, texto_pregunta2, pregunta_x, pregun
         texto_intentos = fuente_sala.render(f"Intentos restantes: {intentos}", True, COLOR_INCORRECTO)
         pantalla.blit(texto_intentos, (250, 50))
         marco_pregunta = pygame.draw.rect(pantalla, COLOR_BLANCO, pygame.Rect(60, 75, 690, 150), 0, 50, 50, 25, 25)
-        pantalla.blit(pregunta, (pregunta_x, pregunta_y))
-        pantalla.blit(pregunta2, (pregunta2_x, pregunta2_y))
+        pantalla.blit(pregunta, (pos_pregunta[0], pos_pregunta[1]))
+        pantalla.blit(pregunta2, (pos_pregunta[2], pos_pregunta[3]))
         marco_respuesta = pygame.draw.rect(pantalla, COLOR_CORRECTO, rect_respuesta, 10, 20, 20, 20, 20)
         input_respuesta = respuesta_font.render(f"{ingreso}", True, COLOR_BLANCO)
         pantalla.blit(input_respuesta, (pos_respuesta, 295))
@@ -135,5 +135,6 @@ def sala(color_fondo, nivel, texto_pregunta, texto_pregunta2, pregunta_x, pregun
 
         pygame.display.flip()
         reloj.tick(60)
+    resultado = (puntaje, sigue)
 
-    return puntaje, sigue
+    return resultado

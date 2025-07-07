@@ -6,7 +6,8 @@ def ingreso_individual(lista_jugadores):
     while len(nombre_jugador) < 1:
         nombre_jugador = input(f"Ingrese un nombre válido: ")
     lista_jugadores.append(nombre_jugador)
-    return lista_jugadores, nombre_jugador
+    lista_con_jugador = (lista_jugadores, nombre_jugador)
+    return lista_con_jugador
 
 def salas():
     print(f'Bienvenido a "Sala de Escape de Programación".\nEsto consta de 4 niveles. Tenés que responder la pregunta correctamente para avanzar, tenés solo 2 intentos por sala y un tiempo de 1 minuto.')
@@ -127,7 +128,8 @@ def escape(jugador):
     print("----- TABLA -----")
     print(f"{'Jugador':10} {'Sala 1':10} {'Sala 2':10} {'Sala 3':10} {'Sala 4':10} {'Total':10} {'Completo/No Completo':40}")
     print(f"{str(jugador):8} {puntaje_por_sala[0]:8} {puntaje_por_sala[1]:10} {puntaje_por_sala[2]:10} {puntaje_por_sala[3]:10} {puntaje_por_sala[4]:10} {completo:40}")
-    return jugador, puntaje_por_sala,cant_salas, no_paso_primera
+    resultado = (jugador, puntaje_por_sala, cant_salas, no_paso_primera)
+    return resultado
 
 
 def mostrar_mayor_puntajes(tabla):
