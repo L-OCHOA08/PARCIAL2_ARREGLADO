@@ -1,6 +1,6 @@
 import pygame
 
-def iniciar_juego(cantidad_incial_jugadores):
+def inicio_juego(cantidad_incial_jugadores):
     pygame.init()
     # VARIABLES
     ANCHO_VENTANA = 800
